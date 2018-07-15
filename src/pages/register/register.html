@@ -1,0 +1,71 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<div *ngIf="spinload" class="spinner-wrap border fixed-top w-100 h-100 d-flex align-items-center justify-content-center" style="z-index:9999">
+     <ion-spinner></ion-spinner>
+</div>
+
+<ion-content class="no-scroll">
+
+
+
+     <div class="container-fluid wrap-login-page">
+
+          <div class="d-flex justify-content-center">
+
+               <div class="window ">
+                    <!-- <div class="overlay"></div> -->
+                    <div class="content">
+                         <div class="welcome">
+                              <img src="https://vignette.wikia.nocookie.net/gow-fireage/images/3/3b/Wiki_logo.png/revision/latest?cb=20130923012616" alt="">
+                         </div>
+
+                         <form [formGroup]="regisForm">
+                              <p class="text-danger bg-dark p-2"  *ngIf="regisForm.controls.email.errors?.minlength">
+                                  ต้องมากกว่า 8 ตัวอักษร
+                             </p>
+                              <p class="text-danger bg-dark p-2"  *ngIf="regisForm.controls.email.errors?.required && !regisForm.controls.email.pristine ">
+                                  จำเป็นต้องกรอก
+                             </p>
+                              <p class="text-danger bg-dark p-2"  *ngIf="regisForm.controls.email.errors?.pattern && !regisForm.controls.email.pristine">
+                                   รูปแบบอีเมลไม่ถูกต้อง
+                              </p>
+                              <div class="wrap-field">
+                                   <input type="text"  placeholder="Email" class="form-control input-style" formControlName="email">
+                                   <ion-icon name="mail"></ion-icon>
+                              </div>
+                              <p class="text-danger bg-dark p-2"   *ngIf="regisForm.controls.pass.errors?.required && !regisForm.controls.pass.pristine ">
+                                   ห้ามเว้นว่าง
+                              </p>
+                              <p class="text-danger bg-dark p-2"   *ngIf="regisForm.controls.pass.errors?.minlength && !regisForm.controls.pass.pristine">
+                                   ต้องมากกว่า 8 อักษร
+                              </p>
+                              <p class="text-danger bg-dark p-2"  *ngIf="regisForm.controls.pass.errors?.pattern && !regisForm.controls.pass.pristine">
+                                   เฉพาะภาษาอังกฤษและตัวเลขหรือ -_
+                              </p>
+                              <div class="wrap-field">
+                                   <input type="text" placeholder="Password" formControlName="pass"  class="form-control input-style">
+                                   <ion-icon name="key"></ion-icon>
+                              </div>
+
+
+
+                         </form>
+                         <div>
+                              <button (click)="createAcc()" type="submit" [disabled]="regisForm.invalid" class="ghost-round full-width">Register</button>
+                         </div>
+                         <div class="spacing"><span class="highlight mr-2"><b (click)="login()">LOGIN</b></span> | <span class="highlight mr-2">FORGET PASSWORD</span></div>
+                         <!-- <div class="spacing">ลืมรหัสผ่าน <span class="highlight">คลิกที่นี่</span></div> -->
+                         <!-- <div><button  [disabled]="regisForm.invalid" (click)="createAcc()" class="ghost-round full-width">ลงทะเบียน</button></div> -->
+
+                    </div>
+               </div>
+          </div>
+     </div>
+
+</ion-content>

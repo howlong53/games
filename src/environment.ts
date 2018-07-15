@@ -1,8 +1,8 @@
 export const firebaseConfig = {
-  apiKey: 'AIzaSyBUcWqJ_zhYPH5djgryw-lrKjPeWTNnT8U',
-  authDomain: 'boxes-e688f.firebaseapp.com',
-  databaseURL: 'https://boxes-e688f.firebaseio.com',
-  projectId: 'boxes-e688f',
-  storageBucket: 'boxes-e688f.appspot.com',
-  messagingSenderId: '748309750050'
+     apiKey: "AIzaSyA7lfFkumTUvXSPZAwk4IhNV9hO_wCE5Xg",
+     authDomain: "awesomgame-e37b3.firebaseapp.com",
+     databaseURL: "https://awesomgame-e37b3.firebaseio.com",
+     projectId: "awesomgame-e37b3",
+     storageBucket: "awesomgame-e37b3.appspot.com",
+     messagingSenderId: "161799992014"
 };

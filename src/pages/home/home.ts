@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { AngularFirestore,AngularFirestoreCollection  } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import { Observable,BehaviorSubject,Subject} from 'rxjs';
+import { map, filter, switchMap,debounceTime } from 'rxjs/operators';
 
+import { ChannelsPage } from '../channels/channels'
 import { LoginPage } from '../login/login'
+import { RegisterPage } from '../register/register'
+
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
@@ -13,17 +17,37 @@ import { LoginPage } from '../login/login'
   templateUrl: 'home.html'
 })
 export class HomePage {
-     private itemsCollection: AngularFirestoreCollection;
-     items
-     constructor(public navCtrl: NavController,public afs:AngularFirestore) {
-          this.itemsCollection = afs.collection('posts');
-          this.items = this.itemsCollection.valueChanges();
-          console.log(this.items)
+
+
+     constructor(public afAuth:AngularFireAuth,public navCtrl: NavController) {
+          this.afAuth.authState.subscribe(user => {
+               if(user)
+               {
+                    this.navCtrl.push(ChannelsPage)
+               }
+               else
+               {
+                    this.navCtrl.push(LoginPage)
+               }
+          })
+
      }
 
      loadLogin()
      {
+
           this.navCtrl.push(LoginPage)
      }
+     loadRegister()
+     {
+          this.navCtrl.push(RegisterPage)
+     }
+     loadChanels()
+     {
+          this.navCtrl.push(ChannelsPage)
+     }
+     ionViewDidLoad()
+     {
 
+     }
 }

@@ -1,43 +1,38 @@
-<!--
-  Generated template for the LoginPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
+<div *ngIf="spinload" class="spinner-wrap border fixed-top w-100 h-100 d-flex align-items-center justify-content-center" style="z-index:9999">
+     <ion-spinner></ion-spinner>
+</div>
+<ion-content class="no-scroll">
 
 
 
-     <div class="container-fluid wrap-login">
+     <div class="container-fluid wrap-login-page">
 
           <div class="d-flex justify-content-center">
 
                <div class="window ">
-                    <!-- <div class="overlay"></div> -->
                     <div class="content">
-                         <div class="welcome">เข้าสู่ระบบ</div>
+                         <div class="welcome">
+                              <img src="https://vignette.wikia.nocookie.net/gow-fireage/images/3/3b/Wiki_logo.png/revision/latest?cb=20130923012616" alt="">
+                         </div>
+                         <form [formGroup]="loginForm">
+                              <p class="text-danger bg-dark p-2" *ngIf="loginForm.controls['user'].errors && !loginForm.controls['user'].pristine">ห้ามเว้นว่าง</p>
+                              <div class="wrap-field">
 
-                         <form>
-                              <div class="input-fields">
-                                   <p class="text-danger">ห้ามเว้นว่าง</p>
-                                   <input type="text" placeholder="Username" class="input-line full-width">
+                                   <input type="text"  placeholder="Email" class="form-control input-style" formControlName="user">
+                                   <ion-icon name="mail"></ion-icon>
                               </div>
-                              <div class="input-fields">
-                                   <p class="text-danger" >ห้ามเว้นว่าง</p>
-                                   <input type="text" placeholder="Username"  class="input-line full-width">
+                              <p class="text-danger bg-dark p-2" *ngIf="loginForm.controls['pass'].errors && !loginForm.controls['pass'].pristine">ห้ามเว้นว่าง</p>
+                              <div class="wrap-field">
+                                   <input type="text" placeholder="Password" formControlName="pass"  class="form-control input-style">
+                                   <ion-icon name="key"></ion-icon>
                               </div>
                          </form>
-                         <div class="spacing">ลืมรหัสผ่าน <span class="highlight">คลิกที่นี่</span></div>
-                         <div><button  class="ghost-round full-width">Create Account</button></div>
+                         <div>
+                              <button  type="submit" [disabled]="loginForm.invalid" (click)="login()" class="ghost-round full-width">Login</button>
+                         </div>
+                         <div class="spacing"><span class="highlight mr-2"><b (click)="register()">REGISTER</b> |</span><span class="highlight mr-2">FORGET PASSWORD</span></div>
+
                     </div>
                </div>
           </div>

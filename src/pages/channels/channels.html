@@ -1,0 +1,146 @@
+
+
+
+
+<ion-content padding>
+     <button type="button" (click)="logout()" name="button">logout</button>
+     <!-- <ul>
+          <li *ngFor="let item of abc | async">
+               {{ item.people }}{{ item.id }}{{ item.ass }}
+          </li>
+     </ul> -->
+
+     <div id="wrap-header-cash">
+          <ion-card class="header-cash p-3 text-center" *ngFor="let cash of cashUser | async">
+               คุณมี {{cash.price}} CASH (คลิกเพื่อเติมเงิน)
+          </ion-card>
+     </div>
+     <div id="wrap-list-channel">
+          <ion-card *ngFor="let room of rooms | async" class="">
+               <ion-card-content class="" style="line-height:25px;">
+
+                    <div class="title-room">
+                         <b>CRUEL TOWN ROOM {{room.roomname}}</b>
+                    </div>
+
+                    <div class="body-content">
+                         <ul class="ul-text-slide">
+                              <li>
+                                   <span>ค่าสมัคร : </span><span>{{room.charge}} CASH</span>
+                              </li>
+                              <li>
+                                   <span>จำนวนคนสมัคร : </span><span>{{room.users.length}}</span>
+                              </li>
+                              <li>
+                                   <span>เริ่ม : </span><span>18:00น (01/01/2018)</span>
+                              </li>
+                              <li>
+                                   <b class="price-pool-title">PrizePool</b>
+                              </li>
+                              <li>
+                                   <span>{{room.charge}}$ + {{0.20 * room.users.length  | number : '1.2-2'}}$ (+0.20$ ต่อคนสมัคร)</span>
+                              </li>
+                              <div class="more-content">
+                                   <li>
+                                        <span>อันดับ 1 : -</span>
+                                   </li>
+                                   <li>
+                                        <span>อันดับ 2 : -</span>
+                                   </li>
+                                   <li>
+                                        <span>อันดับ 3 : -</span>
+                                   </li>
+                                   <li>
+                                        <span>อันดับ 4 : -</span>
+                                   </li>
+                                   <li class="status-room">
+                                        สถานะห้อง : <b>ยังไม่เริ่ม</b>
+                                   </li>
+                                   <li>
+                                        <div class="pt-3">
+                                             <button (click)="infoGame(room.id)" style="min-width:100px" class="mx-2" ion-button color="light">ดูข้อมูล</button>
+                                             <button (click)="joinRoom(room.id)" style="min-width:100px" class="mx-2" ion-button color="light">ลงทะเบียน</button>
+                                        </div>
+                                   </li>
+                              </div>
+                         </ul>
+                    </div>
+                    <div class="corner-ribbon">กำลังเริ่ม</div>
+                    <div  (click)="more_detail($event)"  class="more-detail text-right">
+                         กดดูเพิ่มเติม
+                    </div>
+               </ion-card-content>
+          </ion-card>
+
+     </div>
+
+
+
+
+
+</ion-content>
+
+<ion-footer>
+     <div class="d-flex">
+          <div class="footer-nav flex-fill text-center py-4">
+               <!-- <div class="wrap-img w-100">
+                    <img src="assets/icon/t1.png" alt="">
+               </div> -->
+               <div class="w-100">
+                    CHARACTER
+               </div>
+          </div>
+          <div class="footer-nav flex-fill text-center py-4">
+               <!-- <div class="wrap-img w-100">
+                    <img src="assets/icon/t2.png" alt="">
+               </div> -->
+               <div class="w-100">
+                    CHANNEL
+               </div>
+          </div>
+          <div class="footer-nav flex-fill text-center py-4">
+               <!-- <div class="wrap-img w-100">
+                    <img src="assets/icon/t3.png" alt="">
+               </div> -->
+               <div class="w-100">
+                    HOW TO PLAY
+               </div>
+          </div>
+     </div>
+     <!-- <ion-toolbar>
+          <div class="d-flex my-2">
+               <div class="flex-fill text-center">
+                    <div class="wrap-img w-100">
+                         <img src="assets/icon/t1.png" alt="">
+                    </div>
+                    <div class="w-100">
+                         text
+                    </div>
+               </div>
+               <div class="flex-fill text-center">
+                    <div class="wrap-img w-100">
+                         <img src="assets/icon/t2.png" alt="">
+                    </div>
+                    <div class="w-100">
+                         text
+                    </div>
+               </div>
+               <div class="flex-fill text-center">
+                    <div class="wrap-img w-100">
+                         <img src="assets/icon/t3.png" alt="">
+                    </div>
+                    <div class="w-100">
+                         text
+                    </div>
+               </div>
+               <div class="flex-fill text-center">
+                    <div class="wrap-img w-100">
+                         <img src="assets/icon/t4.png" alt="">
+                    </div>
+                    <div class="w-100">
+                         text
+                    </div>
+               </div>
+          </div>
+     </ion-toolbar> -->
+</ion-footer>

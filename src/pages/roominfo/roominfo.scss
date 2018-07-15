@@ -1,0 +1,31 @@
+page-roominfo {
+     .title-roominfo
+     {
+          padding: 10px 0px 0px 0px;
+          font-size:20px;
+     }
+     .remain-sur
+     {
+          margin-top:5px;
+          font-size:15px;
+          font-weight: bold;
+     }
+     .wrap-email-list
+     {
+          margin-top:15px;
+          line-height: 25px;
+          text-align: center;
+          color:#000;
+          .warp-email-in
+          {
+               display: block;
+               line-height: 40px;
+               font-size: 15px;
+          }
+          .oddbg
+          {
+               background: rgb(178, 180, 175);
+          }
+     }
+
+}
